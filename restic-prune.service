@@ -1,0 +1,11 @@
+[Unit]
+Description=Restic backup service (data pruning & check)
+After=network-online.target restic-backup.service
+OnFailure=backup-notify-error@%n.service
+
+
+[Service]
+Type=oneshot
+ExecStart=bash /home/allera/.config/systemd/user/prune.sh
+ExecStartPost=notify-send --urgency=normal 'Restic' 'Successfully pruned repo !'
+EnvironmentFile=%h/.config/restic-backup.conf

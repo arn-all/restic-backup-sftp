@@ -1,0 +1,8 @@
+/home/allera/restic
+/home/allera/.cache
+/home/allera/.*
+/home/allera/miniconda*
+/home/allera/WindowsShared
+/home/allera/VirtualBox VMs
+/home/allera/Documents/POSTDOC/fidle/
+

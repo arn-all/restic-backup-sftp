@@ -1,0 +1,6 @@
+[Unit]
+Description=Notify shell about service failure
+
+[Service]
+Type=oneshot
+ExecStart=notify-send --urgency=critical 'Restic: job for %i failed.' 'See "systemctl --user status %i" and "journalctl --user -xe" for details.'

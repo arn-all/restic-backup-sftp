@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily Restic check service
+After=network-online.target restic-backup.service restic-prune.service
+OnFailure=backup-notify-error@%n.service
+
+[Service]
+Type=oneshot
+ExecStart=bash /home/allera/.config/systemd/user/check.sh
+ExecStartPost=notify-send --urgency=low 'Restic check' 'Repository is healthy'
+EnvironmentFile=%h/.config/restic-backup.conf

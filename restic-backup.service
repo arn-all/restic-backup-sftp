@@ -1,0 +1,10 @@
+[Unit]
+Description=Restic backup service
+After=network-online.target
+OnFailure=backup-notify-error@%n.service
+
+[Service]
+Type=oneshot
+ExecStart=bash /home/allera/.config/systemd/user/backup.sh
+ExecStartPost=notify-send --urgency=low 'Restic' 'New snapshot added !'
+EnvironmentFile=%h/.config/restic-backup.conf
