@@ -33,6 +33,7 @@ Running `systemctl --user daemon-reload` is necessary after changing unit files.
 ```shell
 systemctl --user enable --now restic-backup.timer
 systemctl --user enable --now restic-prune.timer
+systemctl --user enable --now restic-check.timer
 ```
 
 ## Monitor
