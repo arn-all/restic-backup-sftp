@@ -46,6 +46,7 @@ The schedulers :
 ```shell
 systemctl --user status restic-backup.timer
 systemctl --user status restic-prune.timer
+systemctl --user status restic-check.timer
 ```
 
 The services itself :
@@ -53,6 +54,7 @@ The services itself :
 ```shell
 systemctl --user status restic-backup.service
 systemctl --user status restic-prune.service
+systemctl --user status restic-check.service
 ```
 
 ## Stop
@@ -62,6 +64,7 @@ Suspend until next reboot :
 ```shell
 systemctl --user stop restic-backup.timer
 systemctl --user stop restic-prune.timer
+systemctl --user stop restic-check.timer
 ```
 
 Disable it for future startups (timer will not start on boot, but can keep running now) :
@@ -69,6 +72,7 @@ Disable it for future startups (timer will not start on boot, but can keep runni
 ```
 systemctl --user disable restic-backup.timer
 systemctl --user disable restic-prune.timer
+systemctl --user disable restic-check.timer
 ```
 
 # Manual use
@@ -84,6 +88,13 @@ systemctl --user start restic-backup.service
 ```shell
 systemctl --user start restic-prune.service
 ```
+
+## Force a prune + check now
+
+```shell
+systemctl --user start restic-check.service
+```
+
 
 ## Refresh a Gdrive token
 
